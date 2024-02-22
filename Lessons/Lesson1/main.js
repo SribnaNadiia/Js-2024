@@ -104,13 +104,13 @@ console.log(typeof '1552');
 console.log(typeof true);
 
 
-let xxx;
-console.log(xxx);  /*комірка є  а визначення в середині немає*/
+/*let xxx;*/
+/*console.log(xxx);  /!*комірка є  а визначення в середині немає*!/*/
 
 /*null*/
 console.log(typeof null); /*вимушена бага. є комірка в якій є простір в якому нічого нема  (для майбутньої інфо)*/
 
-let yyy = null;
+/*let yyy = null;*/
 
 
 /*-----------------------Конвертація-------------------------*/
@@ -140,8 +140,8 @@ console.log(!!'sdhfdj'); /*true*/
 console.log(!!' '); /*true*/
 console.log(!!''); /*false  пуста стрінга*/
 console.log(!!-1000); /*true*/
-console.log(!!null);  /* false*/
-console.log(!!undefined); /*false*/
+/*console.log(!!null);  /!* false*!/
+console.log(!!undefined); /!*false*!/*/
 console.log(!!NaN); /*false*/
 
 
