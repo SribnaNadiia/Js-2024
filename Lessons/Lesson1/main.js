@@ -187,6 +187,8 @@ console.log(arr[3]);
 console.log(arr[5]);
 arr[2] = {name: 'petr', age: 48521}
 console.log(arr);
+console.log(arr);
+
 
 
 
