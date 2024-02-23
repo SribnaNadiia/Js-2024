@@ -62,10 +62,15 @@ let aaa = 100;
 console.log(typeof aaa, aaa);
 
 let bbb = '100';
-console.log(bbb);
+console.log(typeof bbb, bbb);
 
 let ccc = true;
-console.log(true);
+console.log(typeof ccc, ccc);
+
+/*-------Або------*/
+console.log(typeof 100, 100);
+console.log(typeof '100', '100');
+console.log(typeof true, true);
 
 /*--------------1.4------------- */
 
