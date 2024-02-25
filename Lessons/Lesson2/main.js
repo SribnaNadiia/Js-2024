@@ -144,11 +144,11 @@ console.log(true && true || false);  /*true . послідовність*/
 /*let age = +prompt();  /!*числове значення*!/*/
 let age = 100;  /*0-18  19-35  36-60*/
 
-/*if (age < 18) {   /!*якщо менше 18*!/ /!* if може існувати без else *!/
+if (age < 18) {   /*якщо менше 18*/ /* if може існувати без else */
     document.write('<h2>Hello adult user</h2>');
-} else {         /!* у інших випадках*!/  /!* варіант на всяк випадок*!/
+} else {         /* у інших випадках*/  /* варіант на всяк випадок*/
     document.write('<h2>Hello young user</h2>');
-}*/
+}
 
 if (age > 0 && age <= 18) {
     document.write('<h2>Hello adult user</h2>');
