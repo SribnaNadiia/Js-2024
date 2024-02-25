@@ -183,25 +183,25 @@ let person2 = 5;
     }
 
 /*-----------------2.6-----------------*/
-let x1 = 10;
-let y1 = 20;
-x1 = (x1 && y1 || y1);
-/*console.log(x1 && y1 || y1);*/
+
+let x1 = null || 'default';
 console.log(x1);
 
+/*let x1 = 10;
+let y1 = 20;
+x1 = (x1 && y1 || y1);
+/!*console.log(x1 && y1 || y1);*!/
+console.log(x1);
 
-/* Або*/
 
 let x2 = true;
 let y2 = false;
 console.log(x2 || y2);
 
 x2 = (x2 && y2 || y2);
-console.log(x2);
+console.log(x2);*/
 
-
-
-
+/*-----------------2.7-----------------*/
 
 let coursesAndDurationArray = [
     {title: 'JavaScript Complex', monthDuration: 5},
@@ -212,6 +212,41 @@ let coursesAndDurationArray = [
     {title: 'Frontend', monthDuration: 4}
 ];
 
+if (coursesAndDurationArray[0].monthDuration >= 5) {
+    console.log('Супер');
+} else {
+    console.log('Мало');
+}
+
+if (coursesAndDurationArray[1].monthDuration >= 5) {
+    console.log('Супер');
+} else {
+    console.log('Мало');
+}
+
+if (coursesAndDurationArray[2].monthDuration >= 5) {
+    console.log('Супер');
+} else {
+    console.log('Мало');
+}
+
+if (coursesAndDurationArray[3].monthDuration >= 5) {
+    console.log('Супер');
+} else {
+    console.log('Мало');
+}
+
+if (coursesAndDurationArray[4].monthDuration >= 5) {
+    console.log('Супер');
+} else {
+    console.log('Мало');
+}
+
+if (coursesAndDurationArray[5].monthDuration >= 5) {
+    console.log('Супер');
+} else {
+    console.log('Мало');
+}
 
 
 
