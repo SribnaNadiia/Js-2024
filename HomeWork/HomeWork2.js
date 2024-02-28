@@ -41,7 +41,7 @@ console.log(books[2]);
 Поля об'єкту : title ,pageCount, genre, authors.
 Поле "автори" - являється  масивом. Кожен автор має поля name та age.-*/
 
-let FairyTale = [
+let FairyTale =
     {id:1, title: 'Hansel and Gretel', pageCount: 800, genre: 'Fairy tale', author:['The Brothers Grimm' , '1768-1863']},
     {id:2, title: 'Cinderella', pageCount: 500, genre: 'Fairy tale', author:['Charles Perrault' , '1628-1703']},
     {id:3, title: 'The Snow Queen', pageCount: 600, genre: 'Fairy tale', author:['Hans Christian Andersen' , '1805-1875']}
