@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+    // Функція являється обьєктом
+    // Без фігурних дужок вона не буде працювати
+
+    function foo() {
+        console.log('fadbxcvvbdzd');
+        console.log('fadbxcvvbdzd');
+        console.log('fadbxcvvbdzd');
+        console.log('fadbxcvvbdzd');
+        console.log('===========================');
+    }
+
+    /*console.log(foo)*/   /*- виведеться в консоль*/
+
+    foo();     /*(викликаємо саму функцію)*/
+    foo();
+    foo();
+    foo();
+
+
+    function hello() {
+        document.write('<div>hello</div>');
+    }
+
+    hello();
+    hello();
+    hello();
+
+    function plan(lesson, teacher, time) {   /*Аргументи*/
+        document.write(
+            `<div>
+                   <h2> lesson: ${lesson}, teacher: ${teacher}, time: ${time}</h2>
+            </div>`
+        );
+    }
+
+    plan('Math', 'Joe Biden', '05:40');
+    plan('Litres', 'Serhgi', '03:10');
+    plan('Biologi', 'Nadiia', '22:10');
+
+
+    function time(lesson, teacher, time) {
+
+    }
+
+    time('js', 'Oleg', '19:30');   /*без данних виведе як underfined*/  /*щоб дізнатись зміст функції  1(затримати курсор), 2( Ctrl + Q )*/
+
+    /*----------------------------------------------------------------------*/
+    let data = [
+        {lesson: 'js', teacher: 'Serghi', time: '15:00'},
+        {lesson: 'html', teacher: 'Oleg', time: '16:00'},
+        {lesson: 'git', teacher: 'Andrii', time: '17:00'},
+        {lesson: 'noda', teacher: 'Alex', time: '18:00'},
+    ];
+
+    for (const datum of data) {
+        time(datum.lesson, datum.teacher, datum.time);
+    }
+
+    /*for (const datum of data) {  /!*Цикл*!/
+        document.write(
+            `<div>
+                    <h2>
+                        вчитель - ${datum.teacher},
+                        урок - ${datum.lesson},
+                        час проведення - ${datum.time}
+                    </h2>
+             </div>`
+        );
+    }*/
+
+    /*------------------------------------------------*/
+
+    function item(dataObj) {
+        document.write(
+            `<div>
+                <h2>
+                    вчитель - ${dataObj.teacher},
+                    урок - ${dataObj.lesson},
+                    час проведення - ${dataObj.time}
+                </h2>
+         </div>`
+        );
+    }
+
+    let items = [
+        {lesson: 'String', teacher: 'Ola', time: '15:00'},
+        {lesson: 'Loops', teacher: 'Nadiia', time: '16:00'},
+        {lesson: 'HTML', teacher: 'Masha', time: '17:00'},
+        {lesson: 'CSS', teacher: 'Vova', time: '18:00'},
+    ];
+
+    for (const item1 of items) {
+        item(item1);
+    }
+
+    /*------------------------------------------------------------------*/
+
+    let fruts = [
+        {frut: 'Banana', color: 'yellow', price: '15'},
+        {frut: 'Ananas', color: 'yellow-brown', price: '16'},
+        {frut: 'Kokos', color: 'brown-white', price: '17'},
+        {frut: 'Strowbarry', color: 'red', price: '18'},
+    ];
+
+
+    function product(array) {     /*Якщо щось у масиві буде змінюватись то є сенс АРГУМЕНТ ЗРОБИТИ МАСИВОМ*/
+        for (const arrayElement of array) {
+            document.write(
+                `<div>
+                <h2>
+                    назва - ${arrayElement.frut},
+                    колір - ${arrayElement.color},
+                    ціна - ${arrayElement.price}
+                </h2>
+         </div>`
+            );
+        }
+    }
+
+    product(fruts);
+
+    /*----------------------------------------------------------------------------*/
+
+
+    let fruts1 = [
+        {frut: 'Banana', color: 'yellow', price: '15'},
+        {frut: 'Ananas', color: 'yellow-brown', price: '16'},
+        {frut: 'Kokos', color: 'brown-white', price: '17'},
+        {frut: 'Strowbarry', color: 'red', price: '18'},
+    ];
+    let items1 = [
+        {lesson: 'String', teacher: 'Ola', time: '15:00'},
+        {lesson: 'Loops', teacher: 'Nadiia', time: '16:00'},
+        {lesson: 'HTML', teacher: 'Masha', time: '17:00'},
+        {lesson: 'CSS', teacher: 'Vova', time: '18:00'},
+    ];
+    let dogMas2 = [
+        {id: 1, name: 'kokos', breed: 'spaniel', age: 3}, /*index 0*/
+        {id: 2, name: 'ananas', breed: 'staff', age: 5},  /*index 1*/
+        {id: 3, name: 'kit', breed: 'pes', age: 7},
+    ];
+
+    function asd(mass) {
+        for (const objFromArray of mass) {
+            console.log(objFromArray);
+            for (const key in objFromArray) {
+                console.log(key, objFromArray[key]);
+            }
+        }
+    }
+
+    asd(fruts1);
+    asd(items1);
+    asd(dogMas2);
+    /*    function asd1(mass) {
+            for (const objFromArray of mass) {
+                document.write(`<ul>`)
+                for (const key in objFromArray) {
+                    document.write(`<li>${key} - ${objFromArray[key]}}</li>`)
+                }
+                document.write(`</ul>`)
+            }
+        }
+    
+        asd1(fruts1);
+        asd1(items1);
+        asd1(dogMas2);*/
+
+    /*---------------------------------------------------*/
+
+    function bar(itemss) {
+        for (const objFromArray of itemss) {
+            fort(objFromArray);
+        }
+    }
+
+
+    function fort(objFromArray) {
+        document.write(`<ul>`)
+        for (const key in objFromArray) {
+            document.write(`<li>${key} - ${objFromArray[key]}}</li>`)
+        }
+        document.write(`</ul>`)
+    }
+
+
+    function arrayPrinter(itemss) {
+        bar(itemss);
+    }
+
+    arrayPrinter(fruts1);
+    arrayPrinter(items1);
+    arrayPrinter(dogMas2);
+
+    /*-------------------------Return-----------------------------------------------------------*/
+    
+    function calcVat(sumOfMoney) {
+        let vat = sumOfMoney / 100 * 20
+        return sumOfMoney - vat;
+/*        let result = sumOfMoney - vat;
+        return result:*/
+    }
+    let res1 = calcVat(10000);
+    console.log(res1);
+
+    function calcPDFO(sumOfMoney) {
+        let pdfo = sumOfMoney / 100 * 15;
+        return sumOfMoney - pdfo;
+    }
+let calcVat1 = calcVat(10000);
+let calcNDFL1 = calcPDFO(calcVat1);
+console.log(calcNDFL1);
+
+/*-----------------------------------------------------------------------*/
+
+    function myFunction1(a, b) {
+        return a * b;     /*Повертає значення*/
+    }
+    let x1 = myFunction1(6, 4);
+    console.log(x1);
+
+/*--------------------------------------------------------------------------------*/
+
+    function ssdfwe() {
+        console.log(arguments);    /*Псевдо масив*/
+    }
+
+    ssdfwe(11, 22, 33, 44);
+
+    /*--------------------------------------------------------------------------------*/
+
+    // rest argument
+
+    function foobr(a, b ,c, ...xxx) {
+        console.log(xxx);
+    }
+
+    foobr(11, 22, 33, 44, 55, 66, 77, 88);
+
+/*--------------------------------------------------------------------------------*/
+
+    function tagFn(text = 'default', count = 5, tagName = 'h3') {
+        for (let i = 0; i < count; i++) {
+           document.write(`<${tagName}>${text} ${i + 1}<${tagName}>`)
+
+        }
+    }
+
+    function hfFn(color = 'blue', num = 1) {
+        document.write(`<hr style="border: ${num}px ${color} solid">`)
+    }
+
+    
+    tagFn('text Hello', 10, 'div');
+    hfFn();
+    tagFn('My Name', 8, 'p');
+    hfFn('red', 3);
+    tagFn('Chau', 11, 'li');
+    hfFn('green', 5);
+    tagFn();
+
+    
+    
+    
+</script>
+
+</body>
+</html>
