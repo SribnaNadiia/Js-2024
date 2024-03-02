@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+    /*Функція в середині обьєкта*/
+
+    let obj = { /*this == obj,  this.imya === obj.imya*/
+        imya: 'kokos',
+        greeting: function (msg) {
+            console.log(msg + ' my name is ' + this.imya);
+        },
+    }
+
+    obj.greeting('hi');
+                                                    /*Кожен this відноситься до певного обьєкту*/
+    let obj2 = {
+        imya: 'abrikos',
+        greeting: function (msg) {
+            console.log(msg + ' my name is ' + this.imya);
+        },
+    }
+
+    obj2.greeting('pryvit');
+
+// --------------------------------------------------------
+
+
+    function asd() {
+        console.log(this); /*window*/
+    }
+
+    asd();
+
+    // --------------------------------------------------------
+
+//function declaration
+        qwe();
+        function qwe() {
+
+        }
+
+// function expression    (не працює hosting)
+        let foobar = function () {  /*змінна мае назву, функція не має назву*/
+            console.log('azazazazazazaza')
+        };
+
+        foobar(); /*викликаємо функцію за назвою змінної*/
+
+
+    // arrow function
+    let local = () => {      /* => === function */
+        console.log('mnbzcvnxcdxgfxgc');
+    };
+
+    local();
+
+    /*стрілочні функції не співпрацюють з елементами обьєкту*/
+
+    let obj3 = {
+        imya: 'Max',
+        greeting: ()=> {
+
+            console.log('my name is ' + obj3.imya)  /*this == window*/
+        }
+    }
+
+    obj3.greeting();
+
+
+    let obj4 = {
+        imya: 'Lionya',
+        lion: ()=> {
+
+            console.log('my name is ' + obj4.imya)  /*this == window*/
+        },
+        sayHi: function () {
+        //this === obj4
+            let arrFn = ()=> {
+                console.log('hi my name is ' + this.imya)
+            }
+        arrFn();
+        }
+    }
+
+    obj4.sayHi();
+
+/*========================================*/
+    const foo = () => {
+      console.log('zdfgdfbf')
+    }
+    foo();
+                                        /*abo */
+    const fool = () => console.log('okten')
+    fool();
+/*----------------*/
+
+    const ret = (a, b) => {
+      return a + b
+    }
+    console.log(ret(10, 20));
+                                         /*abo */
+    const ret1 = (a, b) => a + b
+
+    console.log(ret1(10, 50));
+                                         /*abo */
+
+    const ret2 = (a, b) => {
+        console.log('hi ')
+       return  a + b
+    }
+
+    console.log(ret2(6, 7));
+
+/*==================================*/
+    // ящо є тільки один аргумент, то () не потрібні
+    const bar = a => a + 10;/*toUpperCase*/
+
+    console.log(bar(100));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
