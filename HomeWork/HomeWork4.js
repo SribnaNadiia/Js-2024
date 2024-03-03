@@ -10,6 +10,11 @@ function hfFn(color = 'blue', num = 1) {
     let s1 = rectanglS(8, 15);
     console.log(s1);
 
+                        /*АБО*/
+
+    const rectanglS1 = (a, b) => a * b
+    console.log(rectanglS1(8, 15));
+
 /*- створити функцію яка обчислює та повертає площу кола з радіусом r*/
 
     function circleS(p, r) {
@@ -17,6 +22,12 @@ function hfFn(color = 'blue', num = 1) {
     }
      let s2 = circleS(Math.PI, 3)
     console.log(s2);
+
+                                /*АБО*/
+
+    const circleS1 = (p, r) => p * (r ** 2)
+    console.log(circleS1(Math.PI, 3));
+
 
 /*- створити функцію яка обчислює та повертає площу циліндру висотою h, та радіутом r*/
 
@@ -26,6 +37,11 @@ function hfFn(color = 'blue', num = 1) {
 
      let s3 = cylinder(Math.PI, 10, 8)
     console.log(s3);
+
+                        /*АБО*/
+
+const cylinderS1 = (p, h, r) => (2 * p * r) * (h + r)
+console.log(cylinderS1(Math.PI, 10, 8));
 
 /*- створити функцію яка приймає масив та виводить кожен його елемент*/
 
@@ -69,7 +85,7 @@ hfFn('green', 0.5);
     function lorem(text = 'Lorem ipsum dolor sit amet.'){
         document.write(`<ul>`)
         for (let i = 0; i < text.length; i++) {
-            const textElement = text[i];
+
 
         } {
             document.write(`<li>${text}</li>`);
@@ -86,7 +102,6 @@ hfFn('green', 0.5);
     function loremIpsum (text = 'Lorem ipsum dolor sit amet.', count = 7){
 
         for (let i = 0; i < count; i++) {
-            const textElement = text[i];
             document.write(`<ul>`)
             document.write(`<li>${text}</li>`);
             document.write(`</ul>`)
@@ -105,7 +120,7 @@ hfFn('green', 0.5);
         {frut: 'Strowbarry', color: 'red', price: 18},
     ];
 
-    function frut(frut1) {
+    function frut(/*frut1*/) {
 
         for (const frut1 of fruts) {
             document.write(`<ul>`)
@@ -175,7 +190,7 @@ hfFn('green', 0.5);
         {id: 3,name: 'kit', age: 7},
     ];
 
-    function dog(id, name, age) {
+    function dog(/*id, name, age*/) {
         for (const dogMa of dogMas) {
             document.write(
                 `<div class="block">
@@ -307,13 +322,35 @@ swap(array);*/
     let res2 = exchange1(10000);
     console.log(res2);
 
+                            /*АБО*/
+
+let objU = {
+    currency:'USD',
+    value:40,
+    exchangeU: function (uah) {
+        console.log(uah / this.value);
+    }
+}
+objU.exchangeU(10000);
 
 
 
+let objE = {
+    currency:'EUR',
+    value:42,
+    exchangeE: function (uah) {
+        console.log(uah / this.value);
+    }
+}
+objE.exchangeE(10000);
 
+                                    /*АБО*/
 
+const usd1 = (usd, uah) => (uah / usd)
+console.log(usd1(40, 10000));
 
-
+const eur1 = (eur, uah) => (uah / eur)
+console.log(eur1(42, 10000));
 
 
 
