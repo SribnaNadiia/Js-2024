@@ -1,21 +1,21 @@
-function hfFn(color = 'blue', num = 1) {
+/*function hfFn(color = 'blue', num = 1) {
     document.write(`<hr style="border: ${num}px ${color} solid">`)
 }
 
-/*
-- створити функцію яка обчислює та повертає площу прямокутника зі сторонами а і б*/
+/!*
+- створити функцію яка обчислює та повертає площу прямокутника зі сторонами а і б*!/
     function rectanglS(a, b) {
         return a * b
     }
     let s1 = rectanglS(8, 15);
     console.log(s1);
 
-                        /*АБО*/
+                        /!*АБО*!/
 
     const rectanglS1 = (a, b) => a * b
     console.log(rectanglS1(8, 15));
 
-/*- створити функцію яка обчислює та повертає площу кола з радіусом r*/
+/!*- створити функцію яка обчислює та повертає площу кола з радіусом r*!/
 
     function circleS(p, r) {
         return p * (r ** 2)
@@ -23,13 +23,13 @@ function hfFn(color = 'blue', num = 1) {
      let s2 = circleS(Math.PI, 3)
     console.log(s2);
 
-                                /*АБО*/
+                                /!*АБО*!/
 
     const circleS1 = (p, r) => p * (r ** 2)
     console.log(circleS1(Math.PI, 3));
 
 
-/*- створити функцію яка обчислює та повертає площу циліндру висотою h, та радіутом r*/
+/!*- створити функцію яка обчислює та повертає площу циліндру висотою h, та радіутом r*!/
 
      function cylinder(p, h, r) {
          return (2 * p * r) * (h + r)
@@ -38,12 +38,12 @@ function hfFn(color = 'blue', num = 1) {
      let s3 = cylinder(Math.PI, 10, 8)
     console.log(s3);
 
-                        /*АБО*/
+                        /!*АБО*!/
 
 const cylinderS1 = (p, h, r) => (2 * p * r) * (h + r)
 console.log(cylinderS1(Math.PI, 10, 8));
 
-/*- створити функцію яка приймає масив та виводить кожен його елемент*/
+/!*- створити функцію яка приймає масив та виводить кожен його елемент*!/
 
     let carte = [
         {starters:'Окрошка', salads:'Цезар', desserts:'Наполеон'},
@@ -66,7 +66,7 @@ console.log(cylinderS1(Math.PI, 10, 8));
     }
     menu(carte);
     hfFn();
-/*- створити функцію яка створює параграф з текстом. Текст задати через аргумент*/
+/!*- створити функцію яка створює параграф з текстом. Текст задати через аргумент*!/
 
     function textFn(text = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.') {
         document.write(`<p>${text}</p>`)
@@ -74,13 +74,13 @@ console.log(cylinderS1(Math.PI, 10, 8));
     textFn();
 hfFn('green', 0.5);
 
-                                         /*АБО*/
+                                         /!*АБО*!/
 
     const lor1 = text => text
         document.write(lor1('Lorem ipsum dolor sit amet.'))
 
     hfFn();
-/*- створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий*/
+/!*- створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий*!/
 
     function lorem(text = 'Lorem ipsum dolor sit amet.'){
         document.write(`<ul>`)
@@ -97,7 +97,7 @@ hfFn('green', 0.5);
 
     lorem();
     hfFn();
-/*- створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий. Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)*/
+/!*- створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий. Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)*!/
 
     function loremIpsum (text = 'Lorem ipsum dolor sit amet.', count = 7){
 
@@ -111,7 +111,7 @@ hfFn('green', 0.5);
     loremIpsum();
     hfFn();
 
-/*- створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список*/
+/!*- створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список*!/
 
     let fruts = [
         {frut: 'Banana', color: 'yellow', price: 15},
@@ -120,7 +120,7 @@ hfFn('green', 0.5);
         {frut: 'Strowbarry', color: 'red', price: 18},
     ];
 
-    function frut(/*frut1*/) {
+    function frut(/!*frut1*!/) {
 
         for (const frut1 of fruts) {
             document.write(`<ul>`)
@@ -135,7 +135,7 @@ hfFn('green', 0.5);
     frut();
 
     hfFn('green', 0.5);
-                        /*Aбо*/
+                        /!*Aбо*!/
 
     let obj1 = {
         name: 'Malina',
@@ -182,7 +182,7 @@ hfFn('green', 0.5);
 
     hfFn();
 
-/*- створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.*/
+/!*- створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.*!/
 
     let dogMas= [
         {id: 1,name: 'kokos', age: 3},
@@ -190,7 +190,7 @@ hfFn('green', 0.5);
         {id: 3,name: 'kit', age: 7},
     ];
 
-    function dog(/*id, name, age*/) {
+    function dog(/!*id, name, age*!/) {
         for (const dogMa of dogMas) {
             document.write(
                 `<div class="block">
@@ -206,7 +206,7 @@ hfFn('green', 0.5);
     }
     dog();
 
-                                        /*АБО*/
+                                        /!*АБО*!/
     hfFn('green', 0.5);
 
     let objD = {
@@ -226,7 +226,7 @@ hfFn('green', 0.5);
     objD.dog1();
 
     hfFn();
-/*function dog(dogs, count = 1) {
+/!*function dog(dogs, count = 1) {
     for (const dogElement of dogMas) {
         document.write(`<div>`)
         for (const key in dogElement) {
@@ -240,9 +240,9 @@ hfFn('green', 0.5);
 
     }
 
-}*/
+}*!/
 
-/*- створити функцію яка повертає найменьше число з масиву*/
+/!*- створити функцію яка повертає найменьше число з масиву*!/
 
     function minMax() {
         let min = arguments[0];
@@ -259,7 +259,7 @@ hfFn('green', 0.5);
     }
     let res = minMax(18, 22, 54, 33, 87, 42)
 
-/*- створити функцію sum(arr)яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад sum([1,2,10]) //->13*/
+/!*- створити функцію sum(arr)яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад sum([1,2,10]) //->13*!/
     let arr = [11, 24, 37, 5];
 
     function result(block) {
@@ -272,10 +272,10 @@ hfFn('green', 0.5);
 
     result(arr);
 
-/*- створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відаовідних індексах
-Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]*/
+/!*- створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відаовідних індексах
+Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]*!/
 
-/*let array = [11, 22, 33, 44];
+/!*let array = [11, 22, 33, 44];
 let index1 = ['cat', 'dog', 'bird'];
 let index2 = [d, b, c, j];
 function swap(numb) {
@@ -289,7 +289,7 @@ function swap(numb) {
         console.log(index2)
 
 }
-swap(array);*/
+swap(array);*!/
 
     function swap(arr, index1, index2) {
         let array = [11, 22, 33, 44];
@@ -301,13 +301,13 @@ swap(array);*/
         console.log(index2)
 
     }
-    swap(arr, 0, 1);
+    swap(arr, 0, 1);*/
 
 
 /*- Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
 Приклад exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD') // => 250*/
 
-    function exchange(sumOfUsd) {
+/*    function exchange(sumOfUsd) {
         let usd = sumOfUsd / 40
         return usd
     }
@@ -322,7 +322,7 @@ swap(array);*/
     let res2 = exchange1(10000);
     console.log(res2);
 
-                            /*АБО*/
+                            /!*АБО*!/
 
 let objU = {
     currency:'USD',
@@ -344,21 +344,48 @@ let objE = {
 }
 objE.exchangeE(10000);
 
-                                    /*АБО*/
+                                    /!*АБО*!/
 
 const usd1 = (usd, uah) => (uah / usd)
 console.log(usd1(40, 10000));
 
 const eur1 = (eur, uah) => (uah / eur)
-console.log(eur1(42, 10000));
+console.log(eur1(42, 10000));*/
 
 
+let moneys = [
+    {currency:'USD',value:40},
+    {currency:'EUR',value:42},
+];
+function change(sumUAH, valut) {
 
+    for (const moneyElement of moneys) {
+        /*console.log(moneyElement);*/
+        if (moneyElement.currency === valut) {
+            console.log(sumUAH / moneyElement.value)
+        }
 
+    }
+  }
 
+change(10000, 'EUR' );
 
+/*/!*АБО*!/*/
 
+let money = [
+    {currency:'USD',value:40},
+    {currency:'EUR',value:42},
+];
 
+function change2(arr, sumUAH, currency) {
+
+    for (const moneyElement of money) {
+        if (moneyElement.currency === currency){
+            console.log(sumUAH / moneyElement.value)
+        }
+    }
+}
+change2(money, 10000, 'USD');
 
 
 

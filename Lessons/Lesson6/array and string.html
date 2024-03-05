@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!--'string в скрипті являється ссилочним типом данних або примітивом в залежності від ситуації'-->
+<script>
+
+    let s1 = 'примітив'; /*prim*/
+    s1.toUpperCase(); /*prim => ref*/
+    let s2 = new String('ccилочний тип в функції'); /*Construktor*/  /*referens*/
+
+    'asdqwe' /*під капотом js являється масивом  ===> */
+    console.log('string'[2]); /*виведеться [r]*/
+
+    let srt1 = 'ітеруємо стрінгу будь яким циклом'
+    for (const srt1Element of srt1) {
+        console.log(srt1Element);
+    }
+
+    /*
+    механізми і функйії вшиті в стрінгові значення
+
+    всі функції не впливають на первинний елемент. створюючі копію
+    */
+
+    let str2 = 'okten hello'
+        /*
+        Метод toUpperCase() возвращает значение строки,
+        преобразованное в верхний регистр.
+        Метод toUpperCase() не изменяет значение самой строки
+        */
+    console.log(str2.toUpperCase());
+
+    let toUpperCase = str2.toUpperCase();
+    console.log(toUpperCase, str2);
+
+    /*
+    Описание Метод toLowerCase()
+    возвращает значение строки,
+    преобразованное в нижний регистр.
+    Метод toLowerCase() не изменяет значение самой строки.
+    */
+
+    console.log(toUpperCase.toLowerCase());
+
+    /*
+    Метод startsWith() помогает определить,
+    начинается ли строка с символов указанных в скобках,
+    возвращая, соответственно, true или false.
+
+    Функція StartsWith перевіряє,
+    чи починається один текстовий рядок іншим.
+    Для обох функцій ці тести є чутливими до регістру.
+    Повернуте значення обох — це логічне значення true або false.
+    */
+
+    console.log(str2.startsWith('ok')); /*true - так починається на ok*/
+    console.log(str2.startsWith('ok10')); /*false*/
+    console.log(str2.startsWith('ten', 2)); /* true - починає з 2 індексу*/
+
+    /*
+    Метод endsWith() позволяет определить,
+    заканчивается ли строка символами указанными в скобках,
+    возвращая, соответственно, true или false
+    */
+
+    console.log(str2.endsWith('llo')); /*true - так закінчується на llo*/
+    console.log(str2.endsWith('ll')); /*false*/
+
+    /*
+    Метод substring() извлекает символы,
+    начиная с индекса indexA до, но не включая, индекс indexB.
+    В частности: Если аргумент indexA равен аргументу indexB ,
+    метод substring() вернёт пустую строку.
+    Если аргумент indexB опущен,
+    метод substring() извлечёт символы до конца строки.
+
+    sub - під-стрінга
+    */
+
+    console.log(str2.substring(1, str2.length - 3));
+
+    /*
+    Метод indexOf() возвращает индекс первого вхождения
+    указанного значения в строковый объект String ,
+    на котором он был вызван, начиная с индекса fromIndex .
+    Возвращает -1, если значение не найдено.
+    */
+
+    console.log(str2.indexOf('o', 1)); /*'o'- шукає заданний символ, 1 - індекс з якого починається пошук*/
+    console.log(str2.lastIndexOf('l')); /*те саме що і indexOf() тільки рахує з кінця*/
+
+     /*
+     Метод charAt() повертає вказаний символ із рядка
+     */
+
+    console.log(str2.charAt(3));
+
+    let sss = '=+380635488910=';
+    console.log(
+        sss
+            .substring(
+                sss.indexOf('=') + 1,
+                sss.indexOf('=', 3)));
+
+    /*
+    Основний випадок використання replaceAll –
+    заміна всіх входжень збігу в рядку.
+    */
+
+    console.log(sss.replaceAll('=','!!!'));
+    console.log(sss.replaceAll('=',' '));
+    console.log(sss.replaceAll('=',''));
+
+    /*
+    split() розділяє рядок s на підрядки
+    за цими роздільниками та повертає список рядків.
+    */
+
+    let objStr = 'vasya 31 male';
+
+    let split = objStr.split(' '); /*поділити по пробілам*/
+    console.log(split);
+/*Adaption*/
+    let obj = {
+        name: split[0],
+        age: split[1],
+        gender: split[2],
+    }
+    console.log(obj);
+
+
+    function adapter(objStr) {
+        let split = objStr.split(' ');
+        return {
+            name: split[0],
+            age: split[1],
+            gender: split[2],
+        }
+
+    }
+
+    console.log(adapter(objStr));
+
+    let objStr2 = 'kokos 35 female';
+    console.log(adapter(objStr2));
+
+    /*Function of arrarays*/
+
+    let arr = [];
+    console.log(Array.isArray(arr), typeof arr);
+    /*руцями наповнюємо обьєкт*/
+    arr[arr.length] = 'pershi';
+    arr[arr.length] = 'druhi';
+    // push добавляет элемент в конец. Unshift добавляет  элемент в начало, сдвигая очередь, так что второй элемент становится первым
+    arr.push('через push1');
+    arr.push('через push2');
+
+    arr.unshift('через unshift')
+
+    console.log(arr);
+
+    /*
+    Описание Метод pop удаляет последний элемент
+    из массива и возвращает удалённое значение.
+    */
+
+    let pop = arr.pop();
+    console.log(arr);
+    console.log(pop);
+
+    /*
+    Описание Метод pop удаляет последний элемент
+    из массива и возвращает удалённое значение.
+    */
+
+    let shift = arr.shift();
+    console.log(arr);
+    console.log(shift);
+
+    /*
+    Метод splice удаляет или добавляет элементы в массив.
+    Можно только удалять элементы, только добавлять
+    или делать и то и другое одновременно.
+    */
+
+    let numbers = [44, 51, 87, 35, 64, 15, 10];
+
+    let splice = numbers.splice(2, 1); /*delete з 2го індекса видалити 1 елемент (87), (87) - знаходиться в return (console.log(splice))*/
+    /*let splice = numbers.splice(2, 1, 'new', 'new2');*/ /*replace вставляє нові значення замість елементу*/
+    console.log(numbers);
+    console.log(splice);
+
+    /*
+    concat(): метод concat js() создает новый массив,
+    объединяя два или более массивов.
+    */
+
+    let nums = [111, 222, 333];
+    let newArrays = numbers.concat(nums);
+    console.log(newArrays);
+
+    /*
+    Метод includes() определяет,
+    содержит ли массив определённый элемент,
+    возвращая в зависимости от этого true или false .
+    */
+
+    console.log('asd'.includes('s'));
+
+    /*
+    Метод join() объединяет все элементы массива
+    (или массивоподобного объекта) в строку.
+    */
+
+    console.log(newArrays.join('.'));
+
+    /*
+    Метод reverse() на месте переставляет элементы массива,
+    на котором он был вызван, изменяет массив
+    и возвращает ссылку на него.
+    */
+
+    console.log(newArrays.reverse());
+
+/*===========callback=====51:00==========================================================*/
+
+    let users = [
+        {name: 'Vasya', age: 31, status: false},
+        {name: 'petya', age: 30, status: true},
+        {name: 'Kolya', age: 29, status: true},
+        {name: 'Olya', age: 28, status: false},
+        {name: 'max', age: 30, status: true},
+        {name: 'Anya', age: 31, status: false},
+        {name: 'oleg', age: 28, status: false},
+        {name: 'masha', age: 30, status: true},
+        {name: 'olya', age: 31, status: true},
+        {name: 'andrey', age: 29, status: false},
+        {name: 'max', age: 31, status: true},
+    ];
+
+    /*
+    Метод forEach() выполняет функцию callback один раз
+    для каждого элемента, находящегося в массиве в порядке возрастания.
+    Она не будет вызвана для удалённых или пропущенных элементов массива.
+    Однако, она будет вызвана для элементов,
+    которые присутствуют в массиве и имеют значение undefined .
+    */
+
+    function asd(unit) { console.log(unit);} /* якеб значення не було на місці unit, туди все рівно ітеруються обьєкти з масиву */
+
+    users.forEach(asd);
+
+    /*АБО*/
+
+    users.forEach((aaa) => console.log(aaa));
+
+    /*
+    Метод filter() создаёт новый массив со всеми элементами,
+    прошедшими проверку, задаваемую в передаваемой функции.
+    */
+
+    let filter1 = users.filter((user) => user.age > 30); /*(user)=>{return false}*/
+    console.log(filter1);
+
+    let filter2 = users.filter((user) => user.status);  /*true*/
+    console.log(filter2);
+
+    let filter3 = users.filter((user) => !user.status);  /*false   . ! - заперечення*/
+    console.log(filter3);
+
+    let filter4 = users.filter((user) => user.status && user.age > 30);  /*&& - амперсант*/
+    console.log(filter4);
+
+    /*
+    Метод map() создаёт новый массив
+    с результатом вызова указанной функции
+    для каждого элемента массива.
+    */
+
+   let map = users.map((user) => {
+        let u = {
+            imya: user.name,
+            vik: user.age
+        }
+        return u;
+    })
+    console.log(map);
+                    /*АБО*/
+
+    let map1 = users.map((user) => ({imya: user.name, vik: user.age}));
+    console.log(map1);
+
+    /*Додаємо обьєкт*/
+
+    let map2 = users.map((user, index) => {
+        let u = {
+            name: user.name,
+            age: user.age,
+            status: user.status,
+            id: index /* + 1 - почати не з 0*/
+        }
+        return u;
+    });
+    console.log(map2);
+    console.log(users);
+
+/*Не правильна маніпуляція
+    let map3 = users.map((user, index) => {
+        user.id = index + 1;
+        return user;
+    });
+
+    console.log(map3);
+    console.log(users);*/
+
+    /*
+    Метод sort() сортирует элементы массива.
+    Порядок сортировки может быть буквенный,
+    числовой, в порядке возрастания, или в порядке убывания.
+    По умолчанию метод sort() сортирует значения в виде строк
+    в алфавитном порядке возрастания. Это хорошо работает для строк
+    ( «Blue» предшествует «Green»).
+    */
+
+    let sort = users.sort((firstObj, neighbor /*сусід*/) => {
+        return firstObj.age - neighbor.age;
+        return neighbor.age - firstObj.age;
+
+    })
+
+    console.log(sort);
+
+    /*
+    Метод localeCompare() строковых значений возвращает число,
+    указывающее, где должна находиться эта строка при сортировке
+    (до, после или в том же самом месте, что и строка,
+    переданная в качестве параметра).
+    */
+
+    console.log(users.sort((a, b) => a.name.localeCompare(b.name)));
+    console.log(users.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase())));
+
+    /*
+    Метод reduce() выполняет функцию callback один раз
+    для каждого элемента, присутствующего в массиве,
+    за исключением пустот, принимая четыре аргумента:
+    начальное значение (или значение от предыдущего вызова callback ),
+    значение текущего элемента, текущий индекс и массив,
+    по которому происходит итерация.
+    1:28*/
+
+    let people = [
+        {name: 'Vasya', age: 31, status: false},
+        {name: 'petya', age: 30, status: true},
+        {name: 'Kolya', age: 29, status: true},
+        {name: 'Olya', age: 28, status: false},
+        {name: 'max', age: 30, status: true},
+        {name: 'Anya', age: 31, status: false},
+        {name: 'oleg', age: 28, status: false},
+        {name: 'masha', age: 30, status: true},
+        {name: 'olya', age: 31, status: true},
+        {name: 'andrey', age: 29, status: false},
+        {name: 'max', age: 31, status: true},
+    ];
+
+/*    let asd5 = [
+        [...true],
+        [...false]
+    ];*/
+
+   let reduce = people.reduce(
+        (acumulator, chuman) => {
+            if (chuman.status){
+                acumulator[0].push(chuman);
+            } else {
+                acumulator[1].push(chuman);
+            }
+            return acumulator;
+        },
+        [[],[]]
+    );
+
+    console.log(reduce[0]);
+    console.log(reduce[1]);
+
+
+</script>
+
+
+
+
+</body>
+</html>
