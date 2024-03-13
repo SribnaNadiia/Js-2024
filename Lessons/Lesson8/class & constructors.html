@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+/*    let user = {
+        id: 1111,
+        name: 'asdasd',
+        greeting(){
+            console.log('hello' + this.name);
+        },
+    }*/
+
+/*створюємо фабричу функцію ------ 05:00*/
+
+/*1) */
+    function factoryFunctionUser(id, name) {
+        return {
+            id,
+            name,
+            greeting() {
+                console.log(this.name);
+            }
+        }
+    }
+
+    let user = factoryFunctionUser(1, 'Vasya');
+    console.log(user);
+
+/*    function foo(userFromFactoryFunction) {
+
+    }
+
+    foo(factoryFunctionUser(11, 'kostya'));*/
+
+
+/*2) Функція конструктор
+Конструкція - це функція яка нічого не ретьорнить і пишеться з вкеликої літери -------- 11:00*/
+
+    function User(id, name ) {
+        this.id = id;
+        this.name = name;
+        this.greeting = function (msg) {
+            console.log(msg + ' '/*'hello '*/ + this.name);
+        };
+
+    }
+
+    let u1 = new User(75, 'Leo');
+    console.log(u1);
+
+
+    function Friend(name, surname) {
+        this.name = name;
+        this.surname = surname;
+    }
+
+    let friend = new Friend('kokos', 'abricosov');
+
+    u1.greeting.call(friend, 'hello');          /*Викликаємо гріттінг від інших обьєктів*/
+    u1.greeting.apply(friend, ['hi', 'dhflzdhj', 'bljh']);
+    u1.greeting('chau');       /*При цьому У1 не змінюється*/
+    console.log();
+
+    let greetingFnCopy = u1.greeting.bind(friend);  /*копія ----24:00*/
+    greetingFnCopy('pryvit');
+
+    /*java script прототипно-орієнтована мова */
+
+    console.log({});
+    let user2 = {
+        id:100500,
+        name: 'Protoryp',
+    }
+
+    let user3 = Object.create(user2);
+    console.log(user3);
+    console.log(user3.id);
+    console.log(user3.name);
+    user3.id = 111;
+    console.log(user3.id);
+
+    /*-------------------------------------------------------*/
+    /*--------Class------------*/
+
+    class Users {
+/*alt + insert*/
+
+        constructor(id, name) {
+            this.id = id;
+            this.name = name;
+        }
+
+        // method /*Ф-ція в класі являється методом */
+        greeting(msg){
+            console.log(msg + ' ' + this.name);
+        }
+    }
+
+    let user4 = new Users(45, 'morskoy kot');
+    console.log(user4);
+    user4.greeting('chau');
+
+/*Наслідування ;  extends - розширення*/
+    class Dev extends Users{
+
+        constructor(id, name, skills) {
+            super(id, name);
+            this.skills = skills;
+        }
+    }
+
+    let dev = new Dev(56, 'lisa', ['js']);
+    console.log(dev);
+
+
+    let date = new Date();
+console.log(date);
+console.log(date.getMonth());
+
+
+    class CustomDate extends Date {
+        getMonth() {
+            return super.getMonth() + 1;
+        }
+    }
+
+console.log(new CustomDate());
+console.log(new CustomDate().getMonth());
+
+
+
+
+</script>
+
+
+</body>
+</html>

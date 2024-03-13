@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    /*TRY CATCH - ОБРОБКА ПОМИЛОК*/
+
+    try {
+        console.log(a);
+    } catch (errooooorrr) {
+        console.error('error');
+        console.table('dndn');
+    }
+    console.log('cchgv');
+
+    /**/
+
+    console.log(123 / 0);
+    function divider(a, b) {
+        if (!b) {
+           throw new Error('warning b cannot be 0');/*return 'warning b cannot be 0';*/
+        }
+        return  a / b;
+    }
+
+  /*  try {
+        divider(10, 0);
+    } catch (e) {
+        /!*описуємо логіку*!/
+    }
+    console.log(divider(10, 0));*/
+
+    /*Оператор опціональної послідовності
+    *
+    * Оператор опциональной последовательности ?.
+    * позволяет получить значение свойства,
+    * находящегося на любом уровне вложенности в цепочке связанных между собой объектов,
+    * без необходимости проверять каждое из промежуточных свойств в ней на существование.
+    * ?. работает подобно оператору ., за исключением того, #
+    * что не выбрасывает исключение, если объект, к свойству или методу которого идёт обращение,
+    * равен null или undefined. В этих случаях он возвращает undefined.*/
+
+    let obj = {
+        name: 'kokkos',
+        /*wife: {
+            name: 'anna'
+        }*/
+    }
+    if (obj.wife) {
+        console.log(obj.wife.name);
+    }
+
+    console.log(obj.wife?.name);
+
+    /*Синтаксичні конструкції, деструктуризація*/
+
+    let obj1 = {
+        name: 'ananas',
+        age: 31,
+        greeting() {
+            console.log('my name is ' + this.name);
+        },
+        wife: {
+            name: 'olya',
+        }
+    }
+
+    /*let name = obj.name;*/
+    let {name, greeting, age} = obj1;
+    console.log(name);
+    console.log(age);
+    greeting();
+
+
+/*    function fooo(object) {
+        let {name, age} = object;  /!*зі всього виведеться тільки зазначене*!/
+    }*/
+
+    /*Abo*/
+
+    function fooo({name: imya /*(псевдонім)*/, age, wife, wife:{name}}) {
+
+
+        console.log(imya, age, wife, name);
+    }
+
+fooo(obj1);
+
+/*--------------------------------------------------------------------*/
+
+    /*let numbers = [11, 22, 33];*/
+    /*abo*/
+    let [a, b ,c] = [11, 22, 33];
+    console.log(a, c);
+
+    /*           Spred        поверхнева копія      */
+
+    let user = {
+        name: 'kokos',
+        age: 31,
+        status: true,
+        wife: {
+            name: 'malina'
+        }
+    }
+
+    let copy = {...user};
+    copy.id = 1;
+    console.log(copy);
+    console.log(user);
+    console.log(copy === user);
+
+    console.log(copy.wife === user.wife);
+
+    let users = [
+        {name: 'Anna', age: 30, status: true},
+        {name: 'Maryna', age: 29, status: true},
+        {name: 'Olga', age: 31, status: false},
+        {name: 'Nadiia', age: 28, status: false},
+        {name: 'Ludmila', age: 30, status: true},
+        {name: 'Elena', age: 31, status: false},
+        {name: 'Mariia', age: 28, status: false},
+        {name: 'Alexandra', age: 30, status: true},
+        {name: 'Evgenia', age: 31, status: true},
+        {name: 'Anastasia', age: 29, status: false},
+        {name: 'Zoya', age: 31, status: true},
+    ];
+
+/*    console.log(users.map((users, index) => {
+        return {id: index + 1,...users, age:users.age + 1};
+    }));*/
+
+    /*abo*/
+
+    console.log(users.map((users, index) => ({id: index + 1,...users, age:users.age + 1})));
+
+    /*COPY*/
+
+    let user1 = {
+        name: 'Elena',
+        age: 31,
+        status: false,
+        foo() {
+            console.log('bar');
+        },
+    };
+
+//     JSON - string
+
+    /*console.log("{name: 'Elena', age: 31, status: false}");*/
+    let stryngify = JSON.stringify(user1);
+    console.log(stryngify);
+
+    console.log(JSON.parse(stryngify));
+
+
+
+</script>
+
+</body>
+</html>

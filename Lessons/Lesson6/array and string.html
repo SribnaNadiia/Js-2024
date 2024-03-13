@@ -390,6 +390,51 @@
     console.log(reduce[0]);
     console.log(reduce[1]);
 
+/*
+Метод trim() удаляет пробельные символы
+с начала и конца строки. Пробельными символами в
+этом контексте считаются все собственно
+пробельные символы (пробел, табуляция, неразрывный пробел и прочие)
+и все символы конца строки (LF, CR и прочие).
+*/
+
+    let str = ' dirty string   ';
+    console.log(str.trim());
+
+    /*------------------------------------------------------------------------*/
+
+    function swap(arr, index1, index2){
+        let num = arr[index1];
+        arr[index1] = arr[index2];
+        arr[index2] = num;
+        return arr
+    }
+
+let res = swap([1, 2, 3, 4, 5], 1, 2);
+    let res1 = swap([100, 2, 75, 6], 0, 2);
+    console.log(res);
+    console.log(res1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </script>
 

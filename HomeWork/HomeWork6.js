@@ -47,7 +47,8 @@ console.log('*************************');
 . Почистити її від зайвих пробілів.*/
 
 let str = ' dirty string   ';
-console.log(str.substring(1, str.length - 3));
+console.log(str.trim());
+
 
 console.log('*************************');
 
@@ -243,7 +244,7 @@ console.log(cardFil3);
 
 /* - всі трефи від 9 та більше*/
 
-let cardFil4 = cards.filter((card) => card.cardSuit === 'clubs').splice(4);
+let cardFil4 = cards.filter((card) => card.cardSuit === 'clubs').splice(3);
 console.log(cardFil4);
 
 
