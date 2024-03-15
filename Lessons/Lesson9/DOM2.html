@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        .products{
+            width: 200px;
+        }
+
+    </style>
+</head>
+<body>
+<!--div>h2+img-->
+
+<div class="products"></div>
+
+<script>
+
+/*    const div = document.createElement('div');
+    div.innerText = 'new text';
+    document.body.appendChild(div);  /!*appendChild - додавати по одному обьєкту*!/
+
+    let h2 = document.createElement('h2');
+    h2.innerHTML = '<i>okten</i>';
+
+    let img = document.createElement('img');
+    img.src = 'https://www.bing.com/images/search?view=detailV2&ccid=2Se5DPcZ&id=9CA310E95A9C016187CB826E552AD4020A3DF078&thid=OIP.2Se5DPcZhdGXFbNE87AjcAHaEe&mediaurl=https%3a%2f%2fwww.dmarge.com%2fwp-content%2fuploads%2f2017%2f05%2fbmw1.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.d927b90cf71985d19715b344f3b02370%3frik%3dePA9CgLUKlVugg%26pid%3dImgRaw%26r%3d0&exph=580&expw=960&q=bmw&simid=608015701636493924&FORM=IRPRST&ck=FEB0ED8AF0D1CF62F4CC43A1C1D37C29&selectedIndex=0&itb=0&ajaxhist=0&ajaxserp=0'
+
+    div.append(h2, img);*/
+
+
+    const productsBlock = document.getElementsByClassName('products')[0];
+
+    let productsList = [
+        {
+            title: 'milk',
+            price: 22,
+            image: 'https://www.mcqueensdairies.co.uk/wp-content/uploads/2019/02/Mcqueens_1litre_whole_organic-300x300-3.jpg'
+        },
+        {
+            title: 'juice',
+            price: 27,
+            image: 'https://images-na.ssl-images-amazon.com/images/I/61jL2GCuKLL._SX679_PIbundle-24,TopRight,0,0_AA679SH20_.jpg'
+        },
+        {
+            title: 'tomato',
+            price: 47,
+            image: 'https://dictionary.cambridge.org/ru/images/thumb/tomato_noun_001_17860.jpg?version=5.0.74'
+        },
+        {
+            title: 'tea',
+            price: 15,
+            image: 'https://yogiproducts.com/wp-content/uploads/2009/03/YT-US-CAR-RelaxedMind-C23-202201-V2-3DFront_withGlow-300DPI-1.png'
+        },
+    ];
+
+    for (const product of productsList) {
+        let div = document.createElement('div');
+        div.classList.add('product');
+
+        productsBlock.appendChild(div);
+
+        let h2 = document.createElement('h2');
+        h2.innerText = `Name - ${product.title}, price - ${product.price}UAH`;
+        div.appendChild(h2);
+
+        let img = document.createElement('img');
+        img.src = product.image;
+        div.appendChild(img);
+    }
+
+    console.log(document.getElementsByTagName('img'));
+
+</script>
+
+
+</body>
+</html>
