@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<!--div id="div4">
+    <button id="next">next</button>
+    <button id="prev">prev</button>-->
+
+
+    <div id="pages"></div>
+    <button id="bt1">Prev</button>
+    <button id="bt2">Next</button>
+
+    <!--<div id="block"></div>
+    <button id="bt"></button>-->
+
+
+
+
+
+<!--зробити масив на 100 об'єктів та дві кнопки prev next
+при завантажені сторінки з'являються перші 10 об'єктів.
+При натисканні next виводяться настпні 10 об'єктів
+При натисканні prev виводяться попередні 10 об'єктів-->
+
+
+<script>
+
+    /*let buttonNext = document.getElementById('next');
+    let buttonPrev = document.getElementById('prev');
+    let div4 = document.getElementById('div4');*/
+
+    let locations = [
+        {
+            "title": "м. Київ",
+            "type": "city"
+        },
+        {
+            "title": "Житомирська область",
+            "type": "oblast"
+        },
+        {
+            "title": "Харківська область",
+            "type": "oblast"
+        },
+        {
+            "title": "Вінницька область",
+            "type": "oblast"
+        },
+        {
+            "title": "Чернігівська область",
+            "type": "oblast"
+        },
+        {
+            "title": "Дніпропетровська область",
+            "type": "oblast"
+        },
+        {
+            "title": "Черкаська область",
+            "type": "oblast"
+        },
+        {
+            "title": "Волинська область",
+            "type": "oblast"
+        },
+        {
+            "title": "Київська область",
+            "type": "oblast"
+        },
+        {
+            "title": "Миколаївська область",
+            "type": "oblast"
+        },
+        {
+            "title": "Рівненська область",
+            "type": "oblast"
+        },
+        {
+            "title": "Сумська область",
+            "type": "oblast"
+        },
+        {
+            "title": "Тернопільська область",
+            "type": "oblast"
+        },
+        {
+            "title": "Краматорський район",
+            "type": "raion"
+        },
+        {
+            "title": "Кіровоградська область",
+            "type": "oblast"
+        },
+        {
+            "title": "Хмельницька область",
+            "type": "oblast"
+        },
+        {
+            "title": "Запорізька область",
+            "type": "oblast"
+        },
+        {
+            "title": "Одеська область",
+            "type": "oblast"
+        },
+        {
+            "title": "Полтавська область",
+            "type": "oblast"
+        },
+        {
+            "title": "Львівська область",
+            "type": "oblast"
+        },
+        {
+            "title": "м. Кривий Ріг",
+            "type": "city"
+        },
+        {
+            "title": "Криворізька територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "Івано-Франківська область",
+            "type": "oblast"
+        },
+        {
+            "title": "Чернівецька область",
+            "type": "oblast"
+        },
+        {
+            "title": "Ізюмський район",
+            "type": "raion"
+        },
+        {
+            "title": "Бахмутська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "м. Васильків",
+            "type": "city"
+        },
+        {
+            "title": "Васильківська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "Білоцерківська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "м. Біла Церква",
+            "type": "city"
+        },
+        {
+            "title": "Донецька область",
+            "type": "oblast"
+        },
+        {
+            "title": "Покровський район",
+            "type": "raion"
+        },
+        {
+            "title": "Уманська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "Бахмутський район",
+            "type": "raion"
+        },
+        {
+            "title": "Закарпатська область",
+            "type": "oblast"
+        },
+        {
+            "title": "Лубенська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "м. Лубни",
+            "type": "city"
+        },
+        {
+            "title": "Полтавська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "м. Полтава",
+            "type": "city"
+        },
+        {
+            "title": "м. Старокостянтинів",
+            "type": "city"
+        },
+        {
+            "title": "Старокостянтинівська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "м. Миколаїв",
+            "type": "city"
+        },
+        {
+            "title": "Миколаївська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "Торецька територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "Кропивницький район",
+            "type": "raion"
+        },
+        {
+            "title": "Першотравенська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "Нікопольська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "м. Нікополь",
+            "type": "city"
+        },
+        {
+            "title": "м. Першотравенськ",
+            "type": "city"
+        },
+        {
+            "title": "Одеський район",
+            "type": "raion"
+        },
+        {
+            "title": "м. Черкаси",
+            "type": "city"
+        },
+        {
+            "title": "Черкаська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "Добропільська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "Херсонська область",
+            "type": "oblast"
+        },
+        {
+            "title": "Сумська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "м. Суми",
+            "type": "city"
+        },
+        {
+            "title": "Первомайська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "Краматорська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "Макарівська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "м. Краматорськ",
+            "type": "city"
+        },
+        {
+            "title": "Миргородська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "м. Бориспіль",
+            "type": "city"
+        },
+        {
+            "title": "Броварська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "м. Миргород",
+            "type": "city"
+        },
+        {
+            "title": "Бориспільська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "м. Бровари",
+            "type": "city"
+        },
+        {
+            "title": "м. Вознесенськ",
+            "type": "city"
+        },
+        {
+            "title": "Коростенський район",
+            "type": "raion"
+        },
+        {
+            "title": "м. Первомайськ",
+            "type": "city"
+        },
+        {
+            "title": "Миронівська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "Вознесенський район",
+            "type": "raion"
+        },
+        {
+            "title": "Синельниківський район",
+            "type": "raion"
+        },
+        {
+            "title": "Фастівська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "Вознесенська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "Житомирський район",
+            "type": "raion"
+        },
+        {
+            "title": "Дружківська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "м. Фастів",
+            "type": "city"
+        },
+        {
+            "title": "Слов'янська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "Запорізький район",
+            "type": "raion"
+        },
+        {
+            "title": "м. Слов'янськ",
+            "type": "city"
+        },
+        {
+            "title": "м. Кременчук",
+            "type": "city"
+        },
+        {
+            "title": "Ніжинський район",
+            "type": "raion"
+        },
+        {
+            "title": "м. Ватутіне",
+            "type": "city"
+        },
+        {
+            "title": "Ватутінська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "Кременчуцька територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "Пологівський район",
+            "type": "raion"
+        },
+        {
+            "title": "Дніпровська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "м. Дніпро",
+            "type": "city"
+        },
+        {
+            "title": "Лозівський район",
+            "type": "raion"
+        },
+        {
+            "title": "Покровська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "м. Обухів",
+            "type": "city"
+        },
+        {
+            "title": "Узинська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "Шепетівський район",
+            "type": "raion"
+        },
+        {
+            "title": "Пирятинська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "Сумський район",
+            "type": "raion"
+        },
+        {
+            "title": "Харківський район",
+            "type": "raion"
+        },
+        {
+            "title": "Жашківська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "м. Пирятин",
+            "type": "city"
+        },
+        {
+            "title": "Павлоградський район",
+            "type": "raion"
+        },
+        {
+            "title": "Голованівський район",
+            "type": "raion"
+        },
+        {
+            "title": "Обухівська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "Подільський район",
+            "type": "raion"
+        },
+        {
+            "title": "м. Охтирка",
+            "type": "city"
+        },
+        {
+            "title": "Мар'їнська територіальна громада",
+            "type": "hromada"
+        },
+        {
+            "title": "м. Мелітополь",
+            "type": "city"
+        },
+        {
+            "title": "Куп’янський район",
+            "type": "raion"
+        },
+        {
+            "title": "Святогірська територіальна громада",
+            "type": "hromada"
+        }
+    ];
+
+    /*    console.log(locations.length);
+
+        let start = 0;
+        let step = 10;
+        let limit = start + step;
+
+        /!* div4.appendChild(buttonNext);*!/
+
+        buttonNext.onclick = function () {
+            for (let i = start; i < limit; i++) {
+                console.log(locations[i]);
+                let p = document.createElement('p');
+                div4.appendChild(p);
+
+                let obj = locations[i];
+                p.innerText = `${obj.title}, ${obj.type}`;
+            }
+            start = limit;
+            limit = limit + start;
+        }
+
+        let start2 = 107;
+        let step2 = 10;
+        let limit2 = start - step2;
+
+        /!* div4.appendChild(buttonPrev);*!/
+        buttonPrev.onclick = function () {
+            for (let i = start2; i < limit2; i++) {
+                console.log(locations[i]);
+                let h3 = document.createElement('h3');
+                div4.appendChild(h3);
+
+                let obj2 = locations[i];
+                h3.innerText = `${obj2.title}, ${obj2 .type}`;
+            }
+            start2 = limit2;
+            limit2 = limit2 - start2;
+        }*/
+
+
+
+    for (let i = 0; i < 107; i++) {
+        locations.push({title: 'title' + i, type: 'type' + i});
+    }
+    console.log(locations);
+    let pages = document.getElementById('pages');
+    let left = document.getElementById('bt1');
+    let right = document.getElementById('bt2');
+
+    let startIndex = 0;
+    let ten = 10;
+
+    function dObjects(start) {
+        pages.innerHTML = '';
+        for (let i = start; i < start + 10; i++) {
+            let p = document.createElement('p')
+            p.innerHTML = `${locations[i].title} / ${locations[i].type}`
+            pages.appendChild(p);
+        }
+    }
+
+    dObjects(startIndex)
+
+    bt1.onclick = function () {
+        if (startIndex === 0) {
+            startIndex = 0;
+            dObjects(startIndex)
+        } else {
+            startIndex -= 10;
+            dObjects(startIndex)
+        }
+    }
+
+    bt2.onclick = function () {
+        if (startIndex === 107) {
+            startIndex = 107;
+            dObjects(startIndex)
+        } else {
+            startIndex += 10;
+            dObjects(startIndex)
+        }
+    }
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+</head>
+<body>
+
+<script>
+
+    /*Є сторінка index.html (назва довільна), при відвідуванні якої в локальне сховще,
+    в масив sessions зберігається інформація про дату та час відвідування сторінки.
+    Є ще сторінка sessions.html (назва довільна),
+    при відвідуванні якої потрібно відмалювати всю інформацію про відвідування сторінки index.html.
+    Інфу НЕ виводити в консоль, а побудувати дом структуру під кожну сессію*/
+
+
+   /* function saveVisit() {
+        let sessions = localStorage.getItem('sessions');
+        console.log(sessions);
+        let arrayOfSession = JSON.parse(sessions);
+        console.log(arrayOfSession);
+
+        if (!arrayOfSession){
+            arrayOfSession = [];
+        }
+
+        let date = new Date();
+
+        arrayOfSession.push({
+            day: date.getDate(),
+            hour: date.getHours(),
+            minutes : date.getMinutes(),
+        });
+
+        let sessionForLS = JSON.stringify(arrayOfSession);
+        localStorage.setItem('sessions', sessionForLS);
+    }
+
+    saveVisit();*/
+
+
+
+    function visits() {
+
+        let arrayOfSession2 = JSON.parse(localStorage.getItem('sessions')) || [];
+
+        let date2 = new Date();
+
+        arrayOfSession2.push({
+            day: date2.getDate(),
+            hour: date2.getHours(),
+            minutes : date2.getMinutes(),
+        });
+
+        localStorage.setItem('sessions', JSON.stringify(arrayOfSession2));
+    }
+
+    visits();
+
+
+
+
+
+</script>
+
+</body>
+</html>

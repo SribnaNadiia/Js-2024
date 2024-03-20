@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+
+        .table {
+            width: 300px;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: rgba(68, 19, 44, 0.37);
+        }
+
+    </style>
+
+</head>
+<body>
+
+<form name='form1'>
+    <div class="table" id="res">
+        <input type="number" name="series">
+        <br>
+        <input type="number" name="partition">
+        <br>
+        <input type="text" name="content">
+        <br>
+        <button>Create Table</button>
+    </div>
+</form>
+
+<!--*** Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
+При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
+-->
+
+<script>
+    let form = document.getElementsByName('form1');
+    let div1 = document.getElementById('res');
+
+   /* form.onsubmit = function (e) {
+        e.preventDefault();
+    }
+
+
+    let series = this.series;
+    let partition = this.partition;
+    let content = this.content;*/
+
+
+
+</script>
+
+</body>
+</html>

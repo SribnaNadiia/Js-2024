@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sessions</title>
+
+    <style>
+
+
+        .div3{
+            width: 200px;
+            height: 200px;
+            background: rgba(78, 46, 110, 0.29);
+        }
+
+    </style>
+
+</head>
+<body>
+
+<script>
+    
+    /*Є ще сторінка sessions.html (назва довільна),
+    при відвідуванні якої потрібно відмалювати всю інформацію про відвідування сторінки index.html.
+    Інфу НЕ виводити в консоль, а побудувати дом структуру під кожну сессію*/
+    
+
+    function res() {
+        let div3 = document.createElement('div');
+        let ul3 = document.createElement('ul');
+
+        document.body.appendChild(div3);
+        div3.classList.add('div3')
+        div3.appendChild(ul3);
+
+        let sessionIndex = JSON.parse(localStorage.getItem('sessions'));
+        for (const session of sessionIndex) {
+            console.log(session);
+            let li3 = document.createElement('li');
+
+            li3.innerText = session.day + ' - ' + session.hour + ':' + session.minutes
+
+            ul3.appendChild(li3);
+
+        }
+    }
+res();
+    
+</script>
+
+
+
+
+</body>
+</html>
