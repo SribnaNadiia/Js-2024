@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .block{
+            color: #1f1f54;
+            font-size: 17px;
+        }
+
+        .num{
+            font-size: 25px;
+            color: red;
+        }
+
+        .block2{
+            color: #a41540;
+            font-size: 17px;
+        }
+
+        .num2{
+            font-size: 25px;
+            color: #1c1c6e;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="block"></div>
+<!--- взяти https://dummyjson.com/docs/carts та вивести інформацію про всі корзини. Відобразити всі поля кожної корзини.-->
+<script>
+
+    fetch('https://dummyjson.com/carts')
+        .then(res => res.json())
+        .then(value => {
+
+            let block = document.getElementsByClassName('block')[0];
+
+            let ul = document.createElement('ul');
+            block.appendChild(ul);
+
+            let {carts} = value;
+            console.log(carts);
+
+            for (const cart of carts) {
+
+                let li = document.createElement('li');
+                li.innerText = cart.id;
+                li.classList.add('num');
+
+
+                for (const product of cart.products) {
+
+                    let li2 = document.createElement('li');
+                    li2.classList.add('block');
+                    li2.innerText = `
+                Order: ${product.title};
+                Price: ${product.price};
+                Quantity: ${product.quantity};
+                Total: ${product.total};
+                  `;
+
+                    li.appendChild(li2);
+                }
+
+                ul.appendChild(li);
+
+            }
+
+        });
+
+
+</script>
+
+</body>
+</html>

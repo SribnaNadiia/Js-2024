@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+
+    let limit = 100;
+    let skip = 10;
+    fetch(`https://dummyjson.com/quotes?limit=${limit}&skip=${skip}`)
+
+    /*fetch('https://dummyjson.com/quotes?limit=7&skip=20') *//*? - конкретизуючі паоаметри;  & - і, та; limit - кількість; skip = з якого починати */
+        .then(res => res.json())
+        /*(res => {
+            return res.json();
+        })*/
+        .then(value => {
+            let {quotes} = value;
+            console.log(quotes);
+            document.write(`<ul>`)
+            for (const quote of quotes) {
+
+                document.write(`
+            <li>
+                    ${quote.id}.${quote.author}
+                    <p>${quote.quote}</p>
+            </li>`)
+
+            }
+            document.write(`</ul>`)
+        });
+    /*console.log(res);
+    console.log(res.body);
+    console.log(res.body.getReader().read());*/
+
+
+</script>
+
+</body>
+</html>

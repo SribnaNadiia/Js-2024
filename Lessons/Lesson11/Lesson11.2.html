@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<button id="do">Do request</button>
+<div class="target">
+
+</div>
+<script>
+
+
+/*    window.onload = function () {   /!*window.onload - проес завантаження вікна браузера *!/
+        let limit = 100;
+        let skip = 10;
+        fetch(`https://dummyjson.com/quotes?limit=${limit}&skip=${skip}`)
+            .then(res => res.json())
+            .then(value => {
+                let {quotes} = value;
+                console.log(quotes);
+                document.write(`<ul>`)
+                for (const quote of quotes) {
+
+                    document.write(`
+            <li>
+                    ${quote.id}.${quote.author}
+                    <p>${quote.quote}</p>
+            </li>`)
+
+                }
+                document.write(`</ul>`)
+            });
+    }*/
+
+    function showQuotes(limit, skip) {
+
+        let url = new URL(`https://dummyjson.com/quotes`);
+
+url.searchParams.append('limit', limit); /* searchParams - додати параметри + параметр + значення*/
+url.searchParams.append('skip', skip);
+        console.log(url.searchParams.get('limit'));
+
+
+        fetch(url/*`https://dummyjson.com/quotes?limit=${limit}&skip=${skip}`*/)
+            .then(res => res.json())
+            .then(value => /*{
+                let {quotes} = value;
+                console.log(quotes);
+                document.write(`<ul>`)
+                for (const quote of quotes) {
+
+                    document.write(`
+            <li>
+                    ${quote.id}.${quote.author}
+                    <p>${quote.quote}</p>
+            </li>`)
+
+                }
+                document.write(`</ul>`)
+            }*/
+            {
+                let target = document.getElementsByClassName('target')[0];
+                target.innerHTML = '';
+
+                let ul = document.createElement('ul');
+                target.appendChild(ul);
+
+                let {quotes} = value;
+
+                for (const quote of quotes) {
+                    let li = document.createElement('li');
+                    let span = document.createElement('span');
+                    span.innerText = quote.id + ' ' + quote.author;
+                    let p = document.createElement('p');
+                    p.innerText = quote.quote;
+
+
+
+                    li.appendChild(span);
+                    li.appendChild(p);
+                    ul.appendChild(li);
+                }
+            });
+
+    }
+
+
+    let lim = 2;
+    let skp = 0;
+
+
+    document.getElementById('do').onclick = function () {
+
+    showQuotes(lim, skp);
+        skp += lim
+}
+
+
+
+
+</script>
+
+</body>
+</html>

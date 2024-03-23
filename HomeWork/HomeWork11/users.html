@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .cont{
+            width: 400px;
+            height: 70px;
+            background: rgba(222, 120, 120, 0.48);
+            border: 2px solid #4d1111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .name{
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="users"></div>
+
+
+<!--- зробити файл users.html
+з ендпоінту http://jsonplaceholder.typicode.com/users отримати всіх користувачів
+вивести їх id + name списком та додати посилання з href = user-details.html?id=XXX (замість ХХХ - айді юзера)
+при кліку на посилання перехід на відповідну сторінку, на якій буде вся інформація про користувача (всі 15 полів)
+отримана через додатковий запит (https://jsonplaceholder.typicode.com/users/XXX   де ХХХ - айді користувача)-->
+
+
+<script>
+
+    /*{
+        "id": 1,
+        "name": "Leanne Graham",
+        "username": "Bret",
+        "email": "Sincere@april.biz",
+        "address": {
+            "street": "Kulas Light",
+            "suite": "Apt. 556",
+            "city": "Gwenborough",
+            "zipcode": "92998-3874",
+            "geo": {
+                "lat": "-37.3159",
+                "lng": "81.1496"
+            }
+        },
+        "phone": "1-770-736-8031 x56442",
+        "website": "hildegard.org",
+        "company": {
+            "name": "Romaguera-Crona",
+            "catchPhrase": "Multi-layered client-server neural-net",
+            "bs": "harness real-time e-markets"
+        }*/
+
+    /*const URL = 'http://jsonplaceholder.typicode.com/users'*/
+
+
+        fetch('http://jsonplaceholder.typicode.com/users')
+            .then(value => value.json())
+            .then(users => {
+
+                let container = document.getElementById('users');
+                container.innerHTML = '';
+
+
+                for (const user of users) {
+
+                    let div = document.createElement('div');
+                    container.appendChild(div);
+                    div.classList.add('cont');
+
+
+                    let h3 = document.createElement('h3');
+                    h3.innerText = `${user.id} - `;
+                    let h2 = document.createElement('h2');
+                    h2.innerText = ` ${user.name}`;
+                    h2.classList.add('name')
+
+                    h2.addEventListener('click', ()=>{
+                        location.href = 'info.html?id='+user.id;
+                        console.log(user.id);
+                    })
+
+                    container.appendChild(div);
+                    div.append(h3, h2);
+                }
+            });
+
+
+
+
+
+</script>
+
+</body>
+</html>
