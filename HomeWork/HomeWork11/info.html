@@ -51,10 +51,10 @@
             });*/
 
 
-   const userNewUrl = new URLSearchParams(window.location.search);
-   const baseUrl = userNewUrl.get('id');
+   const  baseUrl = new URLSearchParams(location.search);
+   const userNewUrl = baseUrl.get('id');
 
-   fetch(`https://jsonplaceholder.typicode.com/users/${baseUrl}`)
+   fetch(`https://jsonplaceholder.typicode.com/users/${userNewUrl}`)
        .then(res => res.json())
        .then(value => {
            for (const valueKey in value) {
@@ -85,16 +85,10 @@
                        div.appendChild(block);
                    }
                }
-
-
                document.body.appendChild(div)
            }
-
-
        })
 
-
-   console.log(location.href);
 
 
 
