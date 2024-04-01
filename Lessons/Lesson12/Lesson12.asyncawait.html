@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    /*    /!*1*!/
+        console.log('asd');
+        /!*3*!/
+        setTimeout(function () {    /!*Виконує дію з затримкою, приймає 2 аргументи (що виконати , через скільки)*!/
+            console.log('timeout1');
+            /!*2*!/
+        }, 1000);
+
+        setTimeout(function () {
+            console.log('timeout2')
+            /!*1*!/
+        }, 500);
+        /!*2*!/
+        console.log('qwe');*/
+
+
+    /*    /!*1*!/
+        console.log('asd');
+        /!*3*!/
+        let id = setInterval(function () {    /!*Виконує дію з затримкою, приймає 2 аргументи (що виконати , через скільки)*!/
+            console.log('timeout');
+        }, 1000);
+        clearInterval(id);
+        /!*2*!/
+        console.log('qwe');*/
+
+    console.log('---------------------------------------------');
+    console.log('---------------------------------------------');
+    console.log('---------------------------------------------');
+
+    /*    setTimeout(() => {
+            console.log('T1');
+            setTimeout(() => {
+                console.log('T2');
+                setTimeout(() => {
+                    console.log('T3');
+                }, 3000);
+            }, 2000);
+        }, 1000);*/
+
+
+    /*Abo*/
+
+
+    /*    let promise = new Promise(() => {
+            setTimeout(() =>{
+                console.log('promise1')
+            }, 900);
+        });*/
+
+
+
+
+/*    let promise2 = new Promise((resolve, reject) => {
+        return setTimeout(() => {
+            let i = 0;
+            console.log('promise2', i);
+            resolve(i);
+            if (false){
+                reject('error');
+            }
+        }, 1000);
+    })
+        .then(value => {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    value++;
+                    console.log('prom22', value);
+                    resolve(value);
+                }, 2000);
+            })
+        })
+        .then(value => {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    value++;
+                    console.log('prom33', value);
+                    resolve();
+                }, 3000);
+            })
+        })
+        .catch(reason => {
+            console.log('kaka');
+        });*/
+
+    console.log('---------------------------------------------');
+    console.log('---------------------------------------------');
+    console.log('---------------------------------------------');
+
+
+/*
+    fetch('http://jsonplaceholder.typicode.com/posts/10')
+        .then(value => value.json())
+        .then(post => {
+            console.log(post);
+            fetch('http://jsonplaceholder.typicode.com/comments?postId=' + post.id)
+                .then(value => value.json())
+                .then(value => {
+                    console.log(value);
+                });
+        });*/
+
+
+    /*Abo*/
+
+
+/*    fetch('http://jsonplaceholder.typicode.com/posts/10')
+        .then(value => value.json())
+        .then(post => {
+            console.log(post);
+           return  fetch('http://jsonplaceholder.typicode.com/comments?postId=' + post.id)
+
+        })
+        .then(value => value.json())
+        .then(value => console.log(value));*/
+
+
+    console.log('---------------------------------------------');
+    console.log('---------------------------------------------');
+    console.log('---------------------------------------------');
+
+
+/*    async function callToAPI() {
+         let posts = await fetch('http://jsonplaceholder.typicode.com/posts')
+             .then(value => value.json());
+         let comments = await fetch('http://jsonplaceholder.typicode.com/comments')
+             .then(value => value.json());
+
+/!*        console.log(posts);
+        console.log(comments);*!/
+
+        return [posts, comments];
+
+    }
+
+    callToAPI()
+        .then(value => console.log(value));*/
+
+
+    console.log('---------------------------------------------');
+    console.log('---------------------------------------------');
+    console.log('---------------------------------------------');
+
+
+   Promise.race([ /*гонка*/
+        fetch('http://jsonplaceholder.typicode.com/posts')
+            .then(value => value.json()),
+        fetch('http://jsonplaceholder.typicode.com/comments')
+            .then(value => value.json()),
+    ]).then(value => console.log(value));
+
+
+
+
+</script>
+
+</body>
+</html>
